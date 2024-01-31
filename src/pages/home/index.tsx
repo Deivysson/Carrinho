@@ -1,6 +1,6 @@
 import { useEffect, useState, useContext } from "react"
 import { BsCartPlus } from "react-icons/bs"
-
+import { Link } from "react-router-dom";
 import { api } from "../../services/api"
 import { CartContext } from "../../contexts/CartContext";
 
@@ -38,12 +38,14 @@ return(
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-5">
             {products.map((product) => (
             <section key={product.id} className="w-full">
+                <Link to={`/product/${product.id}`}>
                 <img 
                 className="w-full rounded-lg max-h-70 mb-2"
                 src={product.cover}
                 alt={product.title}
                 />
                 <p className="font-medium mt-1 mb-2"> {product.title} </p>
+                </Link>
 
                 <div className="flex gap-3 items-center">
                     <strong className="text-zinc-700/90">
